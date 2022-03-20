@@ -5,6 +5,15 @@ O objetivo desta atividade é avaliar conhecimentos básicos do Javascript. Abai
 ## Execução do Teste Prático:
 (Modificação do README para situar sobre a execução do projeto)
 
+Primeiro clone o projeto, digitando:
+```sh
+  git clone https://github.com/kendyyahiro/test-pratico-front.git
+```
+Ao finalizar, instale as dependências do projeto:
+```sh
+  npm install
+```
+Para executar o projeto, digite:
 ```sh
   npm start
 ```
