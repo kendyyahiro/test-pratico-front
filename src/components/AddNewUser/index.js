@@ -32,6 +32,7 @@ export default function AddNewUser({setUserList}){
                 sessionStorage.setItem('localStorageUsers', JSON.stringify(json));
                 setUserList(json)
                 setModalIsOpen(false);
+                setEmailError('');
                 reset();
             }
             else {
