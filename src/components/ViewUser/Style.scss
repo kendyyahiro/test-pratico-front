@@ -1,0 +1,38 @@
+
+// View Component
+.margin-modal{
+    padding: 16px;
+}
+.emphasis-user{
+    background-color: #ff4a4a;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.information-user {
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.d-flex-information{
+    display: flex;
+
+    & div:first-child{
+        font-weight: bold;
+        padding-right: 30px;
+        width: 10%;
+        text-align-last: right;
+    }
+}
+
+.back-button{
+    float: right;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open{
+    height: 35%;
+}

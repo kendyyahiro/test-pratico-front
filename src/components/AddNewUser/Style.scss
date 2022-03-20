@@ -1,0 +1,106 @@
+.space-top-new-user button{
+    border: 2px solid #009bd3;
+    background-color: #009bd3;
+}
+
+.submit-new-user button{
+    border: 2px solid #009688;;
+    background-color: #009688;;
+}
+/* Componente 2 */
+* {
+    box-sizing: border-box;
+}
+
+input[type=text]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+form{
+    position:relative;
+}
+
+input {
+    width: 100%;
+    display: block;
+}
+
+.inline {
+    width: 100%;
+    display: table;
+}
+
+.inline .width-input-new-user {
+    display: table-cell;
+}
+
+.inline .width-input-new-user:nth-child(n+2) {
+    padding-left: 10px;
+}
+.submit-and-options{
+    position:absolute; right:0; top:0;
+}
+
+.input-field{
+    padding: 5px;
+}
+
+.save-margin-right{
+    margin-right: 15px;
+}
+
+.space-between-save-cancel{
+    display: flex;
+}
+
+// Modal
+
+.modal{
+background-color: white;
+display: none;
+position: fixed;
+width: 200px;
+height: 200px;
+left: 200px;
+top: 40px;
+color: black;
+}
+
+.show{
+display: block !important;
+}
+
+.cancel-new-user button{
+border: 2px solid #a7a7a7;
+background-color: #a7a7a7;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open{
+height: 60%;
+}

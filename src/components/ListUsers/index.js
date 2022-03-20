@@ -1,9 +1,16 @@
 import { useEffect, useState} from "react"
 import api from '../../api/';
+import AddNewUser from "../AddNewUser";
+import ViewUser from "../ViewUser";
+import '../../App.scss';
+import './Style.scss';
+
 export default function ListUsers(){
     let [userList, setUserList] = useState([]);
     
     useEffect(() => {
+        // Procurar para ver se existe uma maneira de verificar se o sessionStorage foi já gerado
+        // Vendo se o tamanho é maior que zero e/ou comparar com nulo não funciona.
         api.get('/users')
         .then(function (response) {
             setUserList(response.data)
@@ -14,7 +21,7 @@ export default function ListUsers(){
         .catch(function (error) {
             console.log(error);
         })
-        
+            
     }, []);
 
     function deleteUser(id){
@@ -23,7 +30,6 @@ export default function ListUsers(){
             userList = userList.filter((item) => item.id !== id);
             sessionStorage.setItem('localStorageUsers', JSON.stringify(userList));
             userList = JSON.parse(sessionStorage.getItem('localStorageUsers'))
-            console.log(userList)
             
             setUserList(userList)
 
@@ -32,23 +38,6 @@ export default function ListUsers(){
             console.log(error);
         })
     }
-
-    function viewUser(id){
-        api.get(`/users/${id}`)
-        .then(function (response) {
-            userList = userList.filter((item) => item.id !== id);
-            sessionStorage.setItem('localStorageUsers', JSON.stringify(userList));
-            userList = JSON.parse(sessionStorage.getItem('localStorageUsers'))
-            console.log(userList)
-            
-            setUserList(userList)
-
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-    }
-
     
     return (
         <>
@@ -66,7 +55,7 @@ export default function ListUsers(){
                         {userList.map(function(user, index) {
                             return (
                                 <tr key={user.id}>
-                                    <td className="cursor-open-view-user" onClick={() => viewUser(user.id)} >{user.name}</td>
+                                    <ViewUser id_user={user.id} name_user={user.name}></ViewUser>
                                     <td>{user.email}</td>
                                     <td className="display-center">
                                         <button onClick={() => deleteUser(user.id)} className="style-button">Excluir</button>
@@ -77,6 +66,9 @@ export default function ListUsers(){
                         })}
                     </tbody>
                 </table>
+                <div className="space-top-new-user style-default-button">
+                    <AddNewUser></AddNewUser>
+                </div>
             </div>
         </>
     )
