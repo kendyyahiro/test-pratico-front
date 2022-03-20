@@ -2,6 +2,13 @@
 
 O objetivo desta atividade é avaliar conhecimentos básicos do Javascript. Abaixo algumas instruções:
 
+## Execução do Teste Prático:
+(Modificação do README para situar sobre a execução do projeto)
+
+```sh
+  npm start
+```
+
 ## Tecnologias a serem utilizadas:
 
 1 - ReactJS
