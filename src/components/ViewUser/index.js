@@ -1,7 +1,6 @@
 
 import Modal from 'react-modal';
 import { useState} from "react";
-import '../../App.scss';
 import './Style.scss';
 
 export default function AddNewUser(props){
@@ -9,18 +8,22 @@ export default function AddNewUser(props){
     let [userSelected, setUserSelected] = useState([]);
     
     function viewUser(id){
+        setModalIsOpen(true);
         userSelected = JSON.parse(sessionStorage.getItem('localStorageUsers')).filter((item) => item.id == id);
         setUserSelected(userSelected[0])
-        console.log(userSelected)
     }
 
     return(
         <>
-            <td className="cursor-open-view-user" onClick={() => {setModalIsOpen(true);viewUser(props.id_user)}}>{props.name_user}</td>
+            <td className="cursor-open-view-user" onClick={() => {viewUser(props.id_user)}}>{props.name_user}</td>
             
-            <Modal isOpen={modalIsOpen}>
+            <Modal isOpen={modalIsOpen} ariaHideApp={false}>
                 <div className="margin-modal information-user">
                     <div className="emphasis-user">{userSelected.name}</div>
+                    <h3>
+                        Informações
+                    </h3>
+                    <hr></hr>
                     <div className="d-flex-information">
                         <div>Email: </div>
                         <div>{userSelected.email}</div>

@@ -9,18 +9,19 @@ export default function ListUsers(){
     let [userList, setUserList] = useState([]);
     
     useEffect(() => {
-        // Procurar para ver se existe uma maneira de verificar se o sessionStorage foi já gerado
-        // Vendo se o tamanho é maior que zero e/ou comparar com nulo não funciona.
         api.get('/users')
-        .then(function (response) {
-            setUserList(response.data)
-
-            sessionStorage.setItem('localStorageUsers', JSON.stringify(response.data));
-            userList = JSON.parse(sessionStorage.getItem('localStorageUsers'))
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+            .then(function (response) {
+                if(sessionStorage.getItem('localStorageUsers') == null){
+                    sessionStorage.setItem('localStorageUsers', JSON.stringify(response.data));
+                    setUserList(response.data)
+                }else{
+                    userList = JSON.parse(sessionStorage.getItem('localStorageUsers'))
+                    setUserList(userList)
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
             
     }, []);
 
@@ -38,7 +39,6 @@ export default function ListUsers(){
             console.log(error);
         })
     }
-    
     return (
         <>
             <div className="container-fake">
@@ -62,12 +62,11 @@ export default function ListUsers(){
                                     </td>
                                 </tr>
                             )
-                            
                         })}
                     </tbody>
                 </table>
                 <div className="space-top-new-user style-default-button">
-                    <AddNewUser></AddNewUser>
+                    <AddNewUser setUserList={setUserList}></AddNewUser>
                 </div>
             </div>
         </>

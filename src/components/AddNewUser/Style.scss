@@ -1,13 +1,14 @@
 .space-top-new-user button{
+    margin-bottom: 15px;
     border: 2px solid #009bd3;
     background-color: #009bd3;
 }
 
-.submit-new-user button{
+.submit-new-user input{
     border: 2px solid #009688;;
     background-color: #009688;;
 }
-/* Componente 2 */
+
 * {
     box-sizing: border-box;
 }
@@ -25,16 +26,6 @@ label {
     display: inline-block;
 }
 
-input[type=submit] {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-}
-
 /* Clear floats after the columns */
 .row:after {
     content: "";
@@ -46,11 +37,17 @@ form{
     position:relative;
 }
 
+
 input {
     width: 100%;
     display: block;
 }
+.input-field{
+    height: 40px;
+    border-radius: 5px;
+    border-width: 1px;
 
+}
 .inline {
     width: 100%;
     display: table;
@@ -101,6 +98,25 @@ border: 2px solid #a7a7a7;
 background-color: #a7a7a7;
 }
 
-.ReactModal__Content.ReactModal__Content--after-open{
-height: 60%;
+.breadcrumb{
+    background-color: #ffffff;
+    padding: 0;
+    margin-bottom: 0;
+
+    & > li{
+        display: inline-block;
+    }
+    & > li + li:before {
+        padding: 0 5px;
+        color: #ccc;
+        content: "/";
+    }
+}
+
+
+.pace-done li.active{
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
 }
