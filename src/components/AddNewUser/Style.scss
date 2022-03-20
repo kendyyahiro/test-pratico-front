@@ -79,14 +79,14 @@ input {
 // Modal
 
 .modal{
-background-color: white;
-display: none;
-position: fixed;
-width: 200px;
-height: 200px;
-left: 200px;
-top: 40px;
-color: black;
+    background-color: white;
+    display: none;
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    left: 200px;
+    top: 40px;
+    color: black;
 }
 
 .show{
@@ -119,4 +119,9 @@ background-color: #a7a7a7;
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;
     transition: all 0.4s;
+}
+
+.style-default-button.space-top-new-user.cancel-new-user.back-button{
+    position: absolute;
+    bottom: 0;
 }
